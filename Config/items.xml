@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+
+	<append xpath="/items/item[contains(@name,'drinkJarBeer')]">
+    <property class="Action0">
+      <property name="Class" value="Eat"/>
+      <property name="Delay" value="2"/>
+      <property name="Use_time" value="..."/>
+      <property name="Sound_start" value="player_drinking"/>
+      <property name="Create_item" value="drinkJarEmpty"/>
+    </property>
+    <effect_group tiered="false" name="Drink Tier 3">
+      <requirement name="NotHasBuff" buff="buffIsOnFire"/>
+        <display_value name="dStaminaRegen" value=".4"/>
+        <display_value name="dEntityDamageBrawling" value="3"/>
+        <display_value name="dStunResist" value="1"/>
+        <display_value name="dDuration" value="60"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="add" value="45"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="set" value="60">
+          <requirement name="CVarCompare" cvar="$buffBeerDuration" operation="GT" value="700"/></triggered_effect>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffBeer"/>
+    </effect_group>
+    
+	</append>
+	
+	
+	<append xpath="/items/item[contains(@name,'drugFortBites')]">
+    <property name="Extends" value="drugRecog"/>
+    <property name="DisplayType" value="drugFortBites"/>
+    <effect_group tiered="false" name="Drug Tier 4">
+      <display_value name="dHealthLoss" value=".5"/>
+      <display_value name="$waterAmountAdd" value="-30"/>
+      <display_value name="dDuration" value="500"/>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugFortBitesDuration" operation="add" value="503"/>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugFortBitesDuration" operation="set" value="1363">
+        <requirement name="CVarCompare" cvar="$buffDrugFortBitesDuration" operation="GT" value="1363"/></triggered_effect>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugFortBites"/>
+    </effect_group>
+	</append>.
+	
+	
+	<append xpath="/items/item[contains(@name,'drugRecog')]">
+    <effect_group tiered="false" name="Drug Tier 4">
+      <display_value name="dEntityDamage" value=".5"/>
+      <display_value name="$waterAmountAdd" value="-30"/>
+      <display_value name="dDuration" value="500"/>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugRecogDuration" operation="add" value="503"/>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugRecogDuration" operation="set" value="1503">
+        <requirement name="CVarCompare" cvar="$buffDrugRecogDuration" operation="GT" value="903"/></triggered_effect>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugRecog"/>
+    </effect_group>
+    </append>
+    
+	
+	
+	<append xpath="/items/item[contains(@name,'drinkJarGrandpasMoonshine')]">
+    <!-- Drink Portion -->
+    <effect_group tiered="false" name="Drink Tier 5">
+      <requirement name="NotHasBuff" buff="buffIsOnFire"/>
+        <display_value name="dEntityDamage" value="5"/>
+        <display_value name="dStunResist" value="2"/>
+        <display_value name="dHealthLoss" value=".5"/>
+        <display_value name="dHealthAmount" value="800"/>
+        <display_value name="dStaminaRegen" value=".7"/>
+        <display_value name="dDuration" value="30"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasMoonshineDuration" operation="add" value="30"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasMoonshineDuration" operation="set" value="138">
+          <requirement name="CVarCompare" cvar="$buffGrandpasMoonshineDuration" operation="GT" value="138"/></triggered_effect>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrunkGrandpasMoonshine"/>
+    </effect_group>
+
+    <!-- Drug Portion -->
+    <property name="Extends" value="drugRecog"/>
+    <property name="DisplayType" value="drugFortBites"/>
+    <effect_group tiered="false" name="Drug Tier 4">
+      <display_value name="dHealthLoss" value=".5"/>
+      <display_value name="$waterAmountAdd" value="-30"/>
+      <display_value name="dDuration" value="500"/>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugFortBitesDuration" operation="add" value="503"/>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugFortBitesDuration" operation="set" value="1363">
+        <requirement name="CVarCompare" cvar="$buffDrugFortBitesDuration" operation="GT" value="1363"/></triggered_effect>
+      <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugFortBites"/>
+    </effect_group>
+    
+    
+    </append>
+    
+      
+</configs>
+

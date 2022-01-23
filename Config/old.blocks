@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<append xpath="/blocks">
+		<block name="cobblestoneShapes" shapes="ALL">
+			<property name="CanPickup" value="true"/>
+		</block>
+		<block name="cobblestoneMaster">
+			<property name="CanPickup" value="true"/>
+		</block>
+	</append>
+</configs>

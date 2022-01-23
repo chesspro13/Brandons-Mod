@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+
+	<append xpath="/blocks/block[contains(@name,'cobblestoneShapes') and not(contains(@name,'Player'))]">
+		<property name="CanPickup" value="true"/>
+	</append>
+
+	<append xpath="/blocks/block[contains(@name,'forge')]">
+		<property name="OnlySimpleRotations" value="false"/>
+	</append>
+
+</configs>
+
